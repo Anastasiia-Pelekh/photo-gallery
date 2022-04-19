@@ -32,7 +32,7 @@ export class RandomPhotoService {
   }
 
   public addToFavorites(id: string, url: string): void {
-    const storagePhotos: FavoritePhotoModel[] = JSON.parse(localStorage.getItem('favorites')!);
+    const storagePhotos: FavoritePhotoModel[] = JSON.parse(localStorage.getItem('favorites') || '[]');
 
     let shouldAddPhoto: boolean = true;
 
