@@ -1,0 +1,23 @@
+<div class="image-block">
+  <div *ngFor="let photo of photoData" 
+    class="image"
+    (click)="addToFavorites(photo.id, photo.smallUrl)">
+    <img src="{{photo.smallUrl}}" alt="{{photo?.alt_description}}">
+  </div>
+</div>
+
+<div *ngIf="!loader; else loadingBlock" 
+  class="loader-block">
+  <button 
+    mat-stroked-button 
+    color="primary" 
+    (click)="getMore()">
+    Load more...
+  </button>
+</div>
+
+<ng-template #loadingBlock>
+  <div class="spinner-block">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
